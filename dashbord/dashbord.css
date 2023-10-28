@@ -1,0 +1,149 @@
+nav {
+    background-color: #151823;
+    color: white;
+}
+
+
+nav form a {
+    text-decoration: none;
+    color: white;
+}
+
+.web-details {
+    margin-left: 27rem;
+    margin-top: 3rem;
+    background-color: #151823;
+    color: white;
+    width: 31rem;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.web-details-2 {
+    margin-left: 27rem;
+    margin-top: -4rem;
+    margin-bottom: 4rem;
+    width: 31rem;
+    display: flex;
+    justify-content: center;
+    background-color: #151823;
+    color: white;
+    padding: 2rem;
+}
+
+.web-details h6 {
+    margin-left: 7rem;
+}
+
+.first {
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2rem;
+    padding-bottom: 30px;
+}
+
+.course-div {
+    width: 20rem;
+    height: 20rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    margin-top: 2rem;
+    overflow: hidden;
+    border-radius: 15px;
+
+}
+
+.course-div img {
+    transition: all ease 0.5s;
+    border-radius: 15px;
+}
+
+.course-div:hover img {
+    border-radius: 15px;
+    transform: scale(1.06);
+}
+
+.course {
+    width: 20rem;
+    height: 20rem;
+}
+
+
+.footer {
+    padding-block: 5rem;
+    background-color: #151823;
+    color: #666873;
+}
+
+.footer__container {
+    max-width: 90rem;
+    margin: auto;
+    padding: 0 1.5rem;
+}
+
+.footer__top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    row-gap: 1rem;
+}
+
+.footer__title {
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.footer__list-item {
+    list-style: none;
+}
+
+.footer__list-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.25s;
+}
+
+.footer__list-link:hover {
+    color: #fff;
+}
+
+.company__description {
+    width: 400px;
+}
+
+.company__info {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-right: 5rem;
+}
+
+.company__logo {
+    color: #fff;
+}
+
+.company__info ul {
+    flex-direction: row;
+}
+
+.copyright {
+    margin-top: auto;
+}
+
+@media screen and (min-width: 40em) {
+    .company__info {
+        grid-column: span 2;
+    }
+}

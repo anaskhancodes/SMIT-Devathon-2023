@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <link rel="stylesheet" href="signUp.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+
+<body>
+    <form action="submit_signup.php" method="POST">
+        <h2>Sign Up</h2>
+        <br><br>
+
+        <label for="firstNmae">First Name</label>
+        <br>
+        <input type="text" id="firstNmae" required>
+        <br><br>
+
+        <label for="lastNmae">Last Name</label>
+        <br>
+        <input type="text" id="lastNmae" required>
+        <br><br>
+
+        <label for="email">Email:</label>
+        <br>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <label for="password">Password:</label>
+        <br>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+
+        <button id="signUp-btn">Sign Up</button>
+        <br>
+        <br>
+        <p>Alredy have an account <a href="./logIn/login.html">Login</a></p>
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // Initialize Firebase with your configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBn4C8LWcqPBatqoQJ32W9g9yAl20BSKb4",
+            authDomain: "smit-devathon-2023.firebaseapp.com",
+            projectId: "smit-devathon-2023",
+            storageBucket: "smit-devathon-2023.appspot.com",
+            messagingSenderId: "52097193855",
+            appId: "1:52097193855:web:a2e4770911cee7cff1ac4a",
+            measurementId: "G-RPNFWBWXCL"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        const signup = document.getElementById("signUp-btn");
+
+        signup.addEventListener("click", (event) => {
+            event.preventDefault();
+            const email = document.querySelector("#email").value;
+            const password = document.querySelector("#password").value;
+
+            // Create a new user with Firebase Authentication
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // User signed up successfully
+                    alert("User created");
+                    window.location.href = "./dashbord/dashbord.html";
+                })
+                .catch((error) => {
+                    let errorMessage = error.message;
+                    alert(errorMessage);
+                });
+        });
+    </script>
+</body>
+
+</html>

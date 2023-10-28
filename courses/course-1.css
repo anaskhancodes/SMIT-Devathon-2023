@@ -1,0 +1,16 @@
+.course-1-div{
+    justify-content: center;
+    flex-direction: row;
+}
+
+h1{
+    /* display: inline-block; */
+    margin-left: 2rem;
+    font-size: 3rem;
+    
+}
+
+img{
+    width: 30rem;
+}
+

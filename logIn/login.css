@@ -1,0 +1,40 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    display: grid;
+    place-items: center;
+    background-color: rgb(5, 146, 5);
+}
+
+form{
+    margin-top: 8rem;
+    /* border:2px solid rgb(115, 255, 0) ; */
+    width: 17rem;
+    padding: 3rem;
+    background-color: white;
+    border-top-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+form input{
+    width: 16rem;
+    padding: 0.5rem;
+}
+
+form label{
+    font-size: 1.2rem;
+}
+
+form button{
+    padding: 0.6rem;
+    margin-left: 6.3rem;
+}
+
+form p{
+    margin-left: 2rem;
+    font-size: 1.1rem;
+}

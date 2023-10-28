@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="registration-form">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+
+        <label for="CNIC">CNIC:</label>
+        <input type="number" id="CNIC" name="CNIC" required>
+        <br><br>
+
+        <label for="course">Select Course:</label>
+        <select id="course" name="course">
+            <option value="course1">Course 1</option>
+            <option value="course2">Course 2</option>
+            <!-- Add more course options here -->
+        </select>
+        <br><br>
+
+        <button type="submit">Enroll</button>
+    </form>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBn4C8LWcqPBatqoQJ32W9g9yAl20BSKb4",
+            authDomain: "smit-devathon-2023.firebaseapp.com",
+            projectId: "smit-devathon-2023",
+            storageBucket: "smit-devathon-2023.appspot.com",
+            messagingSenderId: "52097193855",
+            appId: "1:52097193855:web:a2e4770911cee7cff1ac4a",
+            measurementId: "G-RPNFWBWXCL"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="enroll.js"></script>
+</body>
+
+</html>
