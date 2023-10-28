@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="addmin.css">
+    <title>Admin Panel</title>
+</head>
+
+<body>
+    <h1 style="color: white; margin-top: 2rem;">Course and User Management Panel</h1>
+    
+    <!-- Course Management -->
+    <h2 style="color: white;">Add a New Course</h2>
+    <form id="add-course-form">
+        <label for="course-name">Course Name:</label>
+        <input type="text" id="course-name" name="course-name" required>
+        <br><br>
+        <button type="submit">Add Course</button>
+    </form>
+
+    <!-- User Management -->
+    <!-- <h2>User List</h2>
+    <button id="load-users">Load Users</button>
+    <div id="user-list"></div> -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBn4C8LWcqPBatqoQJ32W9g9yAl20BSKb4",
+            authDomain: "smit-devathon-2023.firebaseapp.com",
+            projectId: "smit-devathon-2023",
+            storageBucket: "smit-devathon-2023.appspot.com",
+            messagingSenderId: "52097193855",
+            appId: "1:52097193855:web:a2e4770911cee7cff1ac4a",
+            measurementId: "G-RPNFWBWXCL"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        // Reference to Firestore
+        const db = firebase.firestore();
+
+        // Reference to the courses and users collections
+        const coursesCollection = db.collection("Course");
+        const usersCollection = db.collection("Management");
+
+        // Add Course form
+        const addCourseForm = document.getElementById("add-course-form");
+        addCourseForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const courseName = document.getElementById("course-name").value;
+            coursesCollection.add({ name: courseName })
+                .then(() => {
+                    alert("Course added successfully!");
+                    document.getElementById("course-name").value = ""; // Clear the input field
+                })
+                .catch((error) => {
+                    alert("Error adding course: " + error.message);
+                });
+        });
+
+        // Button click event to load users
+        document.getElementById("load-users").addEventListener("click", () => {
+            loadUsers();
+        });
+
+        function loadUsers() {
+            usersCollection.get()
+                .then((querySnapshot) => {
+                    const userList = document.getElementById("user-list");
+                    userList.innerHTML = ""; // Clear existing user list
+
+                    querySnapshot.forEach((doc) => {
+                        const userData = doc.data();
+                        const userCard = document.createElement("div");
+                        userCard.innerHTML = `
+                            <strong>Name:</strong> ${userData.name}<br>
+                            <strong>Email:</strong> ${userData.email}<br>
+                            <strong>Role:</strong> ${userData.role}<br>
+                            <hr>
+                        `;
+                        userList.appendChild(userCard);
+                    });
+                })
+                .catch((error) => {
+                    console.error("Error loading users: ", error);
+                });
+        }
+    </script>
+</body>
+
+</html>
